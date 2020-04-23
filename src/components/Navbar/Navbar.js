@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavbarElement from './NavbarElement';
 
 export default class extends Component {
   render = () => (
@@ -14,17 +15,11 @@ export default class extends Component {
 					</button>
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					  <ul className="nav navbar-nav ml-auto">
-  						<li className="active">
-  							<a className="" href="#works" >How it Works </a>
-  						</li>
+  						<NavbarElement name="Home" path="/" parentProps={this.props} />
+  						<NavbarElement name="New Coupon" path="/new" parentProps={this.props} />
+  						<NavbarElement name="Redeem Coupon" path="/redeem" parentProps={this.props} />
   						<li className="">
-  							<a className="" href="#aboutus" >About</a>
-  						</li>
-  						<li className="">
-  							<a className="" href="#gifts">Gift ES Tokens</a>
-  						</li>
-  						<li className="">
-  							<a className="" href="#" >Login</a>
+  							<a className="">Load Wallet</a>
   						</li>
   					</ul>
   					<ul className="nav navbar-nav navbar-right">

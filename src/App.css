@@ -2,3 +2,7 @@
   background-color: #182539;
   position: fixed;
 }
+
+.navbar-element {
+  cursor: pointer;
+}
