@@ -23,7 +23,7 @@ export default class extends Component {
 
   walletUpdated = async (address) => {
     if (!address) {
-      this.setState({ imgUrl: null });
+      return this.setState({ imgUrl: null });
     }
     const url =
       process.env.TIMESWAPPERS_SERVER_URL || 'https://apis.timeswappers.com';
@@ -111,18 +111,34 @@ export default class extends Component {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className="login-dropdown-color">
-                      <Dropdown.Item
-                        onClick={() => {
-                          window.open(
-                            'https://eraswap.life/',
-                            '',
-                            'width=1001,height=650'
-                          );
-                        }}
-                      >
-                        Using Era Swap Life
-                      </Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Metamask</Dropdown.Item>
+                      {!this.state.isWalletConnected ? (
+                        <>
+                          <Dropdown.Item
+                            onClick={() => {
+                              window.open(
+                                'https://eraswap.life/',
+                                '',
+                                'width=1001,height=650'
+                              );
+                            }}
+                          >
+                            Using Era Swap Life
+                          </Dropdown.Item>
+                          <Dropdown.Item href="#/action-2">
+                            Metamask
+                          </Dropdown.Item>
+                        </>
+                      ) : (
+                        <>
+                          <Dropdown.Item
+                            onClick={() => {
+                              window.wallet = null;
+                            }}
+                          >
+                            Logout
+                          </Dropdown.Item>
+                        </>
+                      )}
                     </Dropdown.Menu>
                   </Dropdown>
                 </li>
