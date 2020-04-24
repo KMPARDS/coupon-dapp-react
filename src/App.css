@@ -8,6 +8,17 @@
   margin: auto;
 }
 
+.navbar-static-placeholder {
+  position: static;
+  height: 91px;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-static-placeholder {
+    height: 72px;
+  }
+}
+
 .login-dropdown-color .dropdown-item {
   color: #333 !important;
   font-weight: 300;
@@ -15,11 +26,25 @@
 }
 
 .login-dropdown-color .dropdown-item:hover {
-  background-color: #182539BB;
+  background-color: #182539bb;
   color: white !important;
 }
 
 .login-dropdown-color .dropdown-item:active {
   background-color: #182539;
+}
 
+/* New Coupon CSS */
+
+.create-coupon-form-1 {
+  margin: 6rem 0;
+}
+
+.create-coupon-form-1 .large {
+  font-size: 2rem;
+}
+
+.create-coupon-form-1 .create-coupon-button {
+  margin-top: 1rem;
+  font-size: 1.5rem;
 }
