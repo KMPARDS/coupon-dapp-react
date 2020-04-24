@@ -3,25 +3,51 @@ import { Navbar, Dropdown } from 'react-bootstrap';
 import NavbarElement from './NavbarElement';
 import axios from 'axios';
 
+const ethers = require('ethers');
+const { chainId, network } = require('../../config');
+
 export default class extends Component {
   state = {
     isWalletConnected: false,
     imgUrl: null,
+    metamaskChainId: null,
   };
-
+˝
   intervalId = null;
 
   componentDidMount = () => {
     this.intervalId = setInterval(() => {
+      let newState = {};
+      /// @dev wallet checker
       const isWalletConnected = !!window.wallet && !!window.wallet.address;
       if (isWalletConnected !== this.state.isWalletConnected) {
-        this.setState({ isWalletConnected });
-        this.walletUpdated(isWalletConnected && window.wallet.address);
+        newState.isWalletConnected = isWalletConnected;
+        this.updateWalletProfilePic(isWalletConnected && window.wallet);
       }
+
+      if (window.ethereum) {
+        /// @dev metamask chain id checker
+        const metamaskChainId = +window.ethereum.chainId;
+        if (newState.metamaskChainId !== this.state.metamaskChainId) {
+          newState.metamaskChainId = metamaskChainId;
+        }
+
+        /// @dev wallet address change checker
+        if (window.wallet && window.wallet.isMetamask) {
+          const newAddress = window.ethereum.selectedAddress;
+
+          if (newAddress !== window.wallet.address) {
+            this.metamaskLogin();
+          }
+        }
+      }
+
+      this.setState(newState);
     }, 100);
   };
 
-  walletUpdated = async (address) => {
+  updateWalletProfilePic = async (wallet) => {
+    const address = wallet.address;
     if (!address) {
       return this.setState({ imgUrl: null });
     }
@@ -36,11 +62,25 @@ export default class extends Component {
       formData
     );
 
-    console.log(response.data);
     const imgUrl = response.data.avatar
       ? url + '/' + response.data.avatar.slice(0)
       : '';
+
     this.setState({ imgUrl });
+  };
+
+  metamaskLogin = async () => {
+    await window.ethereum.enable();
+
+    const metamaskWeb3Provider = new ethers.providers.Web3Provider(
+      window.web3.currentProvider
+    );
+    window.wallet = metamaskWeb3Provider.getSigner();
+    window.wallet.address = window.ethereum.selectedAddress;
+    window.wallet.isMetamask = true;
+
+    // window.wallet.address = window.ethereum.selectedAddress;
+    this.updateWalletProfilePic(window.wallet);
   };
 
   componentWillUnmount = () => {
@@ -97,7 +137,8 @@ export default class extends Component {
                             src={this.state.imgUrl || '/img/empty-avatar.png'}
                           />{' '}
                           {(() => {
-                            // display name
+                            // display address
+                            if (!window.wallet) return;
                             return (
                               window.wallet.address.slice(0, 4) +
                               '...' +
@@ -124,8 +165,30 @@ export default class extends Component {
                           >
                             Using Era Swap Life
                           </Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">
-                            Metamask
+                          <Dropdown.Item
+                            className={
+                              (
+                                this.state.metamaskChainId !== null
+                                  ? this.state.metamaskChainId !== chainId
+                                  : true
+                              )
+                                ? 'disabled'
+                                : null
+                            }
+                            disabled={
+                              this.state.metamaskChainId !== null
+                                ? this.state.metamaskChainId !== chainId
+                                : true
+                            }
+                            onClick={this.metamaskLogin}
+                          >
+                            Metamask{' '}
+                            {window.ethereum &&
+                            +window.ethereum.chainId !== chainId ? (
+                              <span style={{ color: 'red' }}>
+                                (Change to {network})
+                              </span>
+                            ) : null}
                           </Dropdown.Item>
                         </>
                       ) : (

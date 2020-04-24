@@ -31,7 +31,6 @@ export default class extends Component {
                   <Button
                     className="large"
                     variant="outline-secondary"
-                    alignRight
                     disabled
                   >
                     ES

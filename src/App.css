@@ -25,6 +25,11 @@
   line-height: 2rem !important;
 }
 
+.login-dropdown-color .dropdown-item.disabled {
+  color: #3337 !important;
+  /* background-color: #f00; */
+}
+
 .login-dropdown-color .dropdown-item:hover {
   background-color: #182539bb;
   color: white !important;
