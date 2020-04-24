@@ -51,6 +51,15 @@
   margin: 6rem 0;
 }
 
+.create-coupon-form-1 .red-border .form-control,
+.create-coupon-form-1 .red-border .input-group-append button {
+  border: 1px solid #f00;
+}
+
+.create-coupon-form-1 .input-group input {
+  outline: none;
+}
+
 .create-coupon-form-1 .large {
   font-size: 2rem;
 }

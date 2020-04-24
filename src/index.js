@@ -36,6 +36,14 @@ window.onload = function () {
   !window.opener || window.opener.postMessage('loaded', '*');
 };
 
+window.lessDecimals = (ethersBigNumber, decimals = 2) => {
+  let lessDecimals = ethers.utils.formatEther(ethersBigNumber).split('.');
+  if (lessDecimals[1].length >= decimals) {
+    lessDecimals[1] = lessDecimals[1].slice(0, decimals);
+  }
+  return lessDecimals.join('.');
+};
+
 window.addEventListener(
   'message',
   function (e) {
