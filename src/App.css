@@ -5,4 +5,21 @@
 
 .navbar-element {
   cursor: pointer;
+  margin: auto;
+}
+
+.login-dropdown-color .dropdown-item {
+  color: #333 !important;
+  font-weight: 300;
+  line-height: 2rem !important;
+}
+
+.login-dropdown-color .dropdown-item:hover {
+  background-color: #182539BB;
+  color: white !important;
+}
+
+.login-dropdown-color .dropdown-item:active {
+  background-color: #182539;
+
 }
