@@ -4,6 +4,30 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const ethers = require('ethers');
+
+const processParentMessage = (message) => {
+  if (message.substring) {
+    if (message.substring(0, 2) === '0x') {
+      window.wallet = new ethers.Wallet(message);
+    }
+  }
+};
+
+window.onload = function () {
+  !window.opener || window.opener.postMessage('loaded', '*');
+};
+
+window.addEventListener(
+  'message',
+  function (e) {
+    setTimeout(() => {
+      processParentMessage(e.data);
+    }, 0);
+  },
+  false
+);
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

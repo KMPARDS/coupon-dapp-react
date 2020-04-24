@@ -34,6 +34,12 @@
   background-color: #182539;
 }
 
+.navbar-avatar {
+  width: 1.5rem;
+  height: auto;
+  border-radius: 100%;
+}
+
 /* New Coupon CSS */
 
 .create-coupon-form-1 {
