@@ -6,7 +6,7 @@ export default class extends Component {
   render = () => (
     <header className="header_area menu_two header_style">
       <div className="header_menu">
-        <Navbar bg="dark" expand="lg">
+        <Navbar bg="dark" expand="lg" className="container">
 			    <a className="navbar-brand" href="index.html">
 					  <img className="main_logo" src="img/Coupondapp-logo.png" alt="" width="180" />
 					  <img className="mobile_logo" src="img/Coupondapp-logo-blue.png" width="230"  alt="" />
