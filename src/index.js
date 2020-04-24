@@ -5,11 +5,29 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const ethers = require('ethers');
+const { network, esContract, couponDappContract } = require('./config');
+
+window.provider = ethers.getDefaultProvider(network);
+
+window.updateContractInstances = () => {
+  window.esInstance = new ethers.Contract(
+    esContract.address,
+    esContract.abi,
+    window.wallet || window.provider
+  );
+
+  window.couponDappInstance = new ethers.Contract(
+    couponDappContract.address,
+    couponDappContract.abi,
+    window.wallet || window.provider
+  );
+};
 
 const processParentMessage = (message) => {
   if (message.substring) {
     if (message.substring(0, 2) === '0x') {
-      window.wallet = new ethers.Wallet(message);
+      window.wallet = new ethers.Wallet(message).connect(window.provider);
+      window.updateContractInstances();
     }
   }
 };

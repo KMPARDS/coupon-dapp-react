@@ -79,7 +79,8 @@ export default class extends Component {
     window.wallet.address = window.ethereum.selectedAddress;
     window.wallet.isMetamask = true;
 
-    // window.wallet.address = window.ethereum.selectedAddress;
+    window.updateContractInstances();
+
     this.updateWalletProfilePic(window.wallet);
   };
 
