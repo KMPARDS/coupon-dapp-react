@@ -12,7 +12,7 @@ export default class extends Component {
     imgUrl: null,
     metamaskChainId: null,
   };
-˝
+
   intervalId = null;
 
   componentDidMount = () => {
