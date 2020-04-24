@@ -44,6 +44,15 @@ window.lessDecimals = (ethersBigNumber, decimals = 2) => {
   return lessDecimals.join('.');
 };
 
+const bs58 = require('bs58');
+window.generateCouponFileJson = (bytes) => {
+  return JSON.stringify({
+    version: 1,
+    data: bs58.encode(bytes),
+    keccak256: ethers.utils.keccak256(bytes),
+  });
+};
+
 window.addEventListener(
   'message',
   function (e) {
