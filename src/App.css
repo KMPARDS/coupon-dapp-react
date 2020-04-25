@@ -68,3 +68,22 @@
   margin-top: 1rem;
   font-size: 1.5rem;
 }
+
+/* Redeem Coupon CSS */
+
+#redeem-file-drag {
+  border: 3px solid #182539;
+  border-radius: 1rem;
+  border-style: dashed;
+  margin: 1rem auto;
+  padding: 30vh 1rem;
+  text-align: center;
+  color: #182539;
+  font-weight: 500;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#redeem-file-drag .alert {
+  margin-top: 1rem;
+}
