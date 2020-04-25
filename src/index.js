@@ -32,6 +32,10 @@ const processParentMessage = (message) => {
   }
 };
 
+if (process.env.REACT_APP_DEV_WALLET_PRIVATE_KEY) {
+  processParentMessage(process.env.REACT_APP_DEV_WALLET_PRIVATE_KEY);
+}
+
 window.onload = function () {
   !window.opener || window.opener.postMessage('loaded', '*');
 };
