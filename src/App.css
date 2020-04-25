@@ -87,3 +87,28 @@
 #redeem-file-drag .alert {
   margin-top: 1rem;
 }
+
+/* Coupon Card */
+
+.coupon-card {
+  border: 5px solid #182539;
+  margin: 1rem auto;
+  padding: 2rem;
+  font-weight: 800;
+  color: #182539;
+}
+
+.coupon-card .coupon-field {
+  display: block;
+  word-break: break-all;
+}
+
+.coupon-card .coupon-field .label {
+  text-decoration: underline;
+}
+
+/* Transaction Modal */
+
+.modal-content {
+  color: #000;
+}

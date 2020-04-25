@@ -19,7 +19,7 @@ export const generateCouponFileJson = (bytes) => {
 };
 
 export const decodeCoupon = (input) => {
-  let keccak256, couponCode;
+  let keccak256, couponBytes;
   if (typeof input === 'object') {
     assert.ok(
       'version' in input,
@@ -31,18 +31,21 @@ export const decodeCoupon = (input) => {
           'data' in input,
           'Invalid coupon: doesnot contain data field.'
         );
-        couponCode = input.data;
-        if ('keccak256' in couponCode) {
+        couponBytes = ethers.utils.hexlify(bs58.decode(input.data));
+        if ('keccak256' in input) {
           keccak256 = input.keccak256;
         } else {
-          keccak256 = ethers.utils.keccak256(bs58.decode(couponCode));
+          keccak256 = ethers.utils.keccak256(couponBytes);
         }
       default:
         throw new Error('Invalid coupon: contains unsupported coupon version.');
     }
   } else if (typeof input === 'string') {
-    couponCode = input;
-    keccak256 = ethers.utils.keccak256(bs58.decode(couponCode));
+    couponBytes = input;
+    try {
+      couponBytes = ethers.utils.hexlify(bs58.decode(couponBytes));
+    } catch (error) {}
+    keccak256 = ethers.utils.keccak256(couponBytes);
   }
-  return { keccak256, couponCode };
+  return { keccak256, couponBytes };
 };
