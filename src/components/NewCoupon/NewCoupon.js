@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { InputGroup, FormControl, Button, Alert } from 'react-bootstrap';
 import TransactionModal from '../TransactionModal/TransactionModal';
+import { lessDecimals, generateCouponFileJson } from '../../utils';
 
 const ethers = require('ethers');
 const assert = require('assert');
@@ -113,7 +114,7 @@ export default class extends Component {
                                   ),
                                   `Insufficient Balance${
                                     this.state.userBalance
-                                      ? ` (${window.lessDecimals(
+                                      ? ` (${lessDecimals(
                                           this.state.userBalance
                                         )} ES)`
                                       : ''
@@ -188,7 +189,7 @@ export default class extends Component {
                               const element = document.createElement('a');
                               const file = new Blob(
                                 [
-                                  window.generateCouponFileJson(
+                                  generateCouponFileJson(
                                     this.state.couponBytes
                                   ),
                                 ],

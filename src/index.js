@@ -40,23 +40,6 @@ window.onload = function () {
   !window.opener || window.opener.postMessage('loaded', '*');
 };
 
-window.lessDecimals = (ethersBigNumber, decimals = 2) => {
-  let lessDecimals = ethers.utils.formatEther(ethersBigNumber).split('.');
-  if (lessDecimals[1].length >= decimals) {
-    lessDecimals[1] = lessDecimals[1].slice(0, decimals);
-  }
-  return lessDecimals.join('.');
-};
-
-const bs58 = require('bs58');
-window.generateCouponFileJson = (bytes) => {
-  return JSON.stringify({
-    version: 1,
-    data: bs58.encode(bytes),
-    keccak256: ethers.utils.keccak256(bytes),
-  });
-};
-
 window.addEventListener(
   'message',
   function (e) {
