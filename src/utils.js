@@ -37,8 +37,10 @@ export const decodeCoupon = (input) => {
         } else {
           keccak256 = ethers.utils.keccak256(couponBytes);
         }
+        break;
       default:
         throw new Error('Invalid coupon: contains unsupported coupon version.');
+        break;
     }
   } else if (typeof input === 'string') {
     couponBytes = input;
