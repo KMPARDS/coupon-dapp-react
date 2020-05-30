@@ -4,7 +4,36 @@ Blockchain based simple redeemable coupons
 
 ## JavaScript Integraton documentation
 
-### Content of .coupondapp file JSON
+### Flow
+
+#### Reading a Coupon
+
+1. Load the file.
+2. Convert the file into [\_JSON object](#file-content)
+3. Check the json object and finally convert it into [\_coupon object](#coupon-object).
+4. Load the coupon into the UI and asynchronously use the [\_coupons](#coupons-method) method
+5. Show the output from coupons method to the UI.
+6. Give buttons options for redeeming the coupon.
+
+#### Redeeming the Coupon
+
+1. [Read the coupon](#reading-a-coupon).
+2. Use the [redeemCoupon](#redeemcoupon-method) of the smart contract.
+3. Show in the UI that it's waiting for the transaction to confirm.
+4. Once confirmed, show that coupon is redeemed.
+5. If there was an error, display transaction failed.
+
+#### New coupon
+
+1. Take amount from the user.
+2. Check if user has enough balance. [Code reference](https://github.com/KMPARDS/coupon-dapp-react/blob/a08633ec00d497dcef8cf57b9475befc21b5abf3/src/components/NewCoupon/NewCoupon.js#L109-L122)
+3. Generate Coupon Bytes [Code reference](https://github.com/KMPARDS/coupon-dapp-react/blob/a08633ec00d497dcef8cf57b9475befc21b5abf3/src/components/NewCoupon/NewCoupon.js#L155-L165).
+4. Generate a file for user or QR code [Code reference](https://github.com/KMPARDS/coupon-dapp-react/blob/a08633ec00d497dcef8cf57b9475befc21b5abf3/src/components/NewCoupon/NewCoupon.js#L186-L213)
+5. Check for allowance [Code reference](https://github.com/KMPARDS/coupon-dapp-react/blob/a08633ec00d497dcef8cf57b9475befc21b5abf3/src/components/NewCoupon/NewCoupon.js#L226-L311).
+6. If allowance not there then make user call the [\_approve](#approve-method) method.
+7. Once allowance is there, make user proceed to final step and give button to call [\_newCoupon](#newcoupon-method).
+
+### File content
 
 When you load a coupon file, you will get the following object encoded as JSON.
 
@@ -59,6 +88,18 @@ You need to json files available [here](https://github.com/KMPARDS/coupon-dapp-r
 Useful links: [Code reference](https://github.com/KMPARDS/coupon-dapp-react/blob/master/src/config.js#L13-L30)
 
 ### ES Contract methods:
+
+#### `balanceOf` method
+
+This method is used when redeeming a new coupon.
+
+```typescript
+couponDappInstance.functions.balanceOf(
+  userAddress: string, /* 20 bytes hex string */
+) => Promise<BigNumber>
+```
+
+Useful links: [BigNumber](https://docs.ethers.io/ethers.js/html/api-utils.html#big-numbers)
 
 #### `approve` method
 
