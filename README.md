@@ -57,3 +57,69 @@ Useful links: [Ethers.js docs](https://docs.ethers.io/ethers.js/html/api-contrac
 You need to json files available [here](https://github.com/KMPARDS/coupon-dapp-react/tree/master/src/ethereum). You have to import these json files to get `abi` and use this `abi` while creating a contract instance.
 
 Useful links: [Code reference](https://github.com/KMPARDS/coupon-dapp-react/blob/master/src/config.js#L13-L30)
+
+### ES Contract methods:
+
+#### `approve` method
+
+This method is used when redeeming a new coupon.
+
+```typescript
+couponDappInstance.functions.approve(
+  spenderAddress: string, /* 20 bytes hex string */
+  amount: BigNumber // use parseEther to convert from input
+) => Promise<TransactionObject>
+```
+
+Useful links: [parseEther](https://docs.ethers.io/ethers.js/html/api-utils.html#ether-strings-and-wei)
+
+### CouponDApp Contract methods:
+
+#### `coupons` method
+
+This method is used to check for a coupon if it is available, redeemed or not yet created.
+
+```typescript
+couponDappInstance.functions.coupons(
+  couponHash: string /* 32 byte hex string */
+) => Promise<{
+  amount: BigNumber; // decode using lessDecimals
+  status: BigNumber; // .toNumber()
+}>;
+```
+
+Convert the status into number and check it's value for below:
+
+```
+Status:
+0: NOT_CREATED
+1: ACTIVE
+2: REDEEMED
+```
+
+Useful links: [lessDecimals reference](https://github.com/KMPARDS/coupon-dapp-react/blob/a08633ec00d497dcef8cf57b9475befc21b5abf3/src/utils.js#L4-L10)
+
+#### `newCoupon` method
+
+This method is used to create a new coupon. When before approve method with esInstance needs to be called.
+
+```typescript
+couponDappInstance.functions.newCoupon(
+  couponHash: string /* 32 bytes hex string */,
+  amount: BigNumber // use parseEther to convert from input
+) => Promise<TransactionObject>
+```
+
+The resolved transaction object contains `hash` property that you can show in the UI.
+
+Useful links: [parseEther](https://docs.ethers.io/ethers.js/html/api-utils.html#ether-strings-and-wei)
+
+#### `redeemCoupon` method
+
+This method is used when redeeming a new coupon.
+
+```typescript
+couponDappInstance.functions.redeemCoupon(
+  couponBytes: string /* 64 bytes hex string */
+) => Promise<TransactionObject>
+```
