@@ -92,7 +92,7 @@ export default class extends Component {
     <>
       <header className="header_area menu_two header_style">
         <div className="header_menu">
-          <Navbar bg="dark" expand="lg" className="container">
+          <Navbar collapseOnSelect expand="lg"  bg="transparent"  className="bg-light survey-nav">
             <a
               className="navbar-brand"
               onClick={() => this.props.history.push('/')}
@@ -210,8 +210,10 @@ export default class extends Component {
             </Navbar.Collapse>
           </Navbar>
         </div>
+        
       </header>
-      <div className="navbar-static-placeholder"></div>
+
+
     </>
   );
 }
