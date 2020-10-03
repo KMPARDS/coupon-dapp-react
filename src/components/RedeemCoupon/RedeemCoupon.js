@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert } from 'react-bootstrap';
+import { Alert,Card } from 'react-bootstrap';
 import CouponCard from '../CouponCard/CouponCard';
 
 export default class extends Component {
@@ -87,48 +87,56 @@ export default class extends Component {
 
   render = () => (
     <>
-      <div className="container">
-        {(() => {
-          if (!this.state.coupon) {
-            return (
-              <>
-                <input
-                  type="file"
-                  id="coupon-hidden-input"
-                  style={{ display: 'none' }}
-                  accept=".coupondapp"
-                  onChange={(e) => this.handleFileEvent(e)}
-                />
-                <div
-                  id="redeem-file-drag"
-                  onClick={() => {
-                    document.getElementById('coupon-hidden-input').click();
-                  }}
-                >
-                  {!this.state.fileBeingDragged ? (
-                    <>
-                      <u>Drag</u> your coupon in this box or <u>Click here</u>
-                    </>
-                  ) : (
-                    <>Drop the file!</>
-                  )}
+     <section className="com-sec-hed">
+          <Card className="com-top-space">
+              <Card.Body>
+                    <div className="container">
+                        {(() => {
+                          if (!this.state.coupon) {
+                            return (
+                              <>
+                                <input
+                                  type="file"
+                                  id="coupon-hidden-input"
+                                  style={{ display: 'none' }}
+                                  accept=".coupondapp"
+                                  onChange={(e) => this.handleFileEvent(e)}
+                                />
+                                <div
+                                  id="redeem-file-drag"
+                                  onClick={() => {
+                                    document.getElementById('coupon-hidden-input').click();
+                                  }}
+                                >
+                                  {!this.state.fileBeingDragged ? (
+                                    <>
+                                      <u>Drag</u> your coupon in this box or <u>Click here</u>
+                                    </>
+                                  ) : (
+                                    <>Drop the file!</>
+                                  )}
 
-                  {this.state.fileError ? (
-                    <Alert variant="danger">{this.state.fileError}</Alert>
-                  ) : null}
-                </div>
-              </>
-            );
-          } else {
-            return (
-              <>
-                <h2>Your coupon is loaded!</h2>
-                <CouponCard coupon={this.state.coupon} />
-              </>
-            );
-          }
-        })()}
-      </div>
+                                  {this.state.fileError ? (
+                                    <Alert variant="danger">{this.state.fileError}</Alert>
+                                  ) : null}
+                                </div>
+                              </>
+                            );
+                          } else {
+                            return (
+                              <>
+                                <h2>Your coupon is loaded!</h2>
+                                <CouponCard coupon={this.state.coupon} />
+                              </>
+                            );
+                          }
+                        })()}
+                      </div>
+                  
+              </Card.Body>
+          </Card>
+     </section>
+    
     </>
   );
 }

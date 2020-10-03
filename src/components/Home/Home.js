@@ -3,6 +3,21 @@ import React, { Component } from 'react';
 export default class extends Component {
   render = () => (
     <>
+
+	<section className="main_slider_area banner">
+    <div className="container">
+      <div className="row">
+          <div className="col-md-6">
+            <p>It`s Middlemen-free <span className="line"></span></p>
+            <h2>Send Eraswap Token to anyone <span>With CouponDApp, Simply</span></h2>
+            <h6>CouponDApp offers a solution that allows user to send Era Swap Tokens via unique file through E-mail 
+                            </h6>
+          </div>
+          <div className="col-md-6"></div>
+      </div>
+    </div>
+  </section>
+
       <section
         className="our_company_area our_company_two pad_top p_100 works "
         id="works"

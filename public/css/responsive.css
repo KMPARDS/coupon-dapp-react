@@ -248,6 +248,7 @@
 	
 	.header_area .header_menu .navbar .nav.navbar-nav li {
 		margin-right: 0px;
+		width: 100%;
 	}
 	.header_area .header_menu .navbar .nav.navbar-nav > li > a {
 		line-height: 48px;
