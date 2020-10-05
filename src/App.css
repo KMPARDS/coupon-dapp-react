@@ -203,12 +203,29 @@
 }
 @media (max-width:1024px) {
   .banner{
-    min-height:440px;
+    min-height: auto;
+    padding-top:40px;
+    padding-bottom: 75px;
+  }
+  .banner h2 {
+        line-height: 38px;
+        font-size: 30px;
+        min-width: auto;
+    }
+    .header_area .header_menu .navbar {
+      background-color: #030d3c!important;
+        padding: 0 20px;
+    }
+    .survey-nav .dropdown {
+      margin: 15px  0 !important;
   }
 }
 @media (max-width:991px) {
   .com-sec-hed {
   padding-top: 30px !important;
+}
+.bg-light.scrolled > .navbar .nav.navbar-nav li a {
+  color: #fff !important;
 }
 }
 

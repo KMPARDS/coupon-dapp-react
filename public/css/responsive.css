@@ -185,15 +185,17 @@
 	}
 	/* Menu Effect Css */
 	.navbar-light .navbar-toggler {
-		cursor: pointer;
-		position: relative;
-		height: 20px;
-		width: 30px;
-		top: 0px;
-		border: none;
-		padding: 0px;
-		margin-top: 26px;
-		margin-bottom: 26px;	
+			cursor: pointer;
+			position: relative;
+			height: 40px;
+			width: 40px;
+			top: 0px;
+			border: none;
+			text-align: center;
+			padding: 0px;
+			margin-top: 16px;
+			margin-bottom: 16px;
+			background: #ffff;
 	}
 	.navbar-light .navbar-toggler span {
 		height: 2px;
@@ -203,7 +205,7 @@
 		cursor: pointer;
 		transition: background .3s linear;
 		position: absolute;
-		left: 0px;
+		left: 5px;
 		top: 50%;
 	}
 	.navbar-light .navbar-toggler[aria-expanded="true"] span {
@@ -322,7 +324,7 @@
 		line-height: 48px;
 	}
 	.header_area.menu_two .header_menu .navbar .nav.navbar-nav li a {
-		color: #242424;
+		color: #fff;
 	}
 	.menu_eight .navbar-light .navbar-toggler.collapsed span {
 		background: #fff;
@@ -1426,8 +1428,8 @@
 		max-width: 62%;
 	}
 	.header_area.menu_two .header_menu {
-		padding-left: 15px;
-		padding-right: 15px;
+		/* padding-left: 15px;
+		padding-right: 15px; */
 	}
 	.navbar-light .navbar-brand img {
 		max-width: 62%;
