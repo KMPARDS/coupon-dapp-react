@@ -5201,7 +5201,7 @@ button:focus {
 /* Conversion Area css
 ============================================================================================ */
 .conversion_area {
-  padding-top: 80px;
+  padding-top: 0px;
 }
 
 .conversion_area .conversion_inner {
@@ -10565,3 +10565,27 @@ button:focus {
     margin-bottom: 20px;
 }
 
+
+
+
+#logo-carsoul .owl-nav{
+  display:none;
+  }
+  #logo-carsoul .item{
+  box-shadow: 16px 0 15px rgba(0, 0, 0, 0.1);
+  background: #F5F9FB;
+  padding: 10px;
+  padding: 45px 0;
+  border: 10px solid #ffffff;
+  position: relative;
+  z-index: 1;
+  text-align: center !important;
+  padding: 0px;
+  margin-bottom: 10px;
+  }
+  
+  #logo-carsoul .item img{
+  vertical-align: middle;
+  display: block;
+  max-width: 100%;
+  }

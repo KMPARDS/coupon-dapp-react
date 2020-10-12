@@ -48,10 +48,12 @@
     <link href="vendors/revolution/css/navigation.css" rel="stylesheet">
     <!-- Extra Plugin CSS -->
     <link rel="stylesheet" href="vendors/nice-selector/css/nice-select.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="vendors/owl-carousel/assets/owl.carousel.min.css">
     <link href="vendors/popup/magnific-popup.css" rel="stylesheet">
     <link href="vendors/nice-selector/css/nice-select.css" rel="stylesheet">
-
+    <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -73,8 +75,45 @@
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="js/jquery-3.3.1.min.js"></script>
    
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
 
 
+        <script>
+          $(document).ready(function() {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+            loop: true,
+            nav: true,
+            margin: 6,
+            responsive: {
+              0: {
+              items: 1
+              },
+              600: {
+              items: 3
+              },
+              960: {
+              items: 5
+              },
+              1200: {
+              items: 6
+              }
+            }
+            });
+            owl.on('mousewheel', '.owl-stage', function(e) {
+            if (e.deltaY > 0) {
+              owl.trigger('next.owl');
+            } else {
+              owl.trigger('prev.owl');
+            }
+            e.preventDefault();
+            });
+          })
+          </script>
     <script>
       $(window).scroll(function() {
         $('nav').toggleClass('scrolled', $(this).scrollTop() > 0);
