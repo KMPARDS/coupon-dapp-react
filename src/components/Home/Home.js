@@ -115,71 +115,94 @@ export default class extends Component {
               Utilize ES Tokens
             </p>
           </div>
-          <div className="client_slider owl-carousel">
-            <div className="item">
-              <img className="img-fluid" src="img/client/1.png" alt="" />
-            </div>
+     
 
-            <div className="item">
-              <img className="img-fluid" src="img/client/2.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/3.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/4.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/5.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/6.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/7.png" alt="" />
-            </div>
+          <div class="col-md-12" id="logo-carsoul">
+					  <div class="owl-carousel owl-theme">
+                            <div class="item">
+                           <a href="" target="_blank"> <img src="img/logo/esn-logo.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/swapperwall.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/timeally.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/eraswapwallet.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"> <img src="img/logo/timeswappers.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/dayswappers.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/buzcafe.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/eraswapacademy.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/betdeex.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/comp.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/comp-lb.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/faithminus.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/vof.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/certidapp.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"> <img src="img/logo/bookingdapp.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/charitydapp.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/rentingdapp.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/curedapp.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/dateswappers.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/coupondapp.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"><img src="img/logo/recyclingdapp.png"/></a>
+                            </div>
+                            <div class="item">
+                            <a href="" target="_blank"> <img src="img/logo/poolingdapp.png"/></a>
+                            </div>
+                            
 
-            <div className="item">
-              <img className="img-fluid" src="img/client/8.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/9.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/10.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/11.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/12.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/13.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/14.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/15.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/16.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/17.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/18.png" alt="" />
-            </div>
-            <div className="item">
-              <img className="img-fluid" src="img/client/19.png" alt="" />
-            </div>
-          </div>
+
+					  </div>
+
+					</div>
+
+
+
+
+
+
+
+
         </div>
       </section>
 
-      <section className="home_blog_area blog_three pad_btm">
+      {/* <section className="home_blog_area blog_three pad_btm">
         <div className="container">
           <div className="blog_title justify-content-between d-flex">
             <h2>Insight at advotis Blog</h2>
@@ -266,7 +289,7 @@ export default class extends Component {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="conversion_area" id="gifts">
         <div className="container">
           <div className="conversion_inner">

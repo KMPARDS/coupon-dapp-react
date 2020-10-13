@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Dropdown } from 'react-bootstrap';
+import { Navbar, Dropdown, Nav } from 'react-bootstrap';
 import NavbarElement from './NavbarElement';
 import axios from 'axios';
 
@@ -114,6 +114,10 @@ export default class extends Component {
             <Navbar.Collapse id="basic-navbar-nav">
               <ul className="nav navbar-nav ml-auto">
                 <NavbarElement name="Home" path="/" parentProps={this.props} />
+                <li className="navbar-element"><a href="#works">How it Works</a></li>
+                <li className="navbar-element"><a href="#aboutus">About Us</a></li>
+                {/* <NavbarElement name="How it works" href="#works" path="" parentProps={this.props} />
+                <NavbarElement name="About us" path="/#aboutus" parentProps={this.props} /> */}
                 <NavbarElement
                   name="New Coupon"
                   path="/new"

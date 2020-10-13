@@ -23,9 +23,11 @@ export default class extends Component {
                   <div className="row">
                     <div className="col-lg-6 col-sm-6">
                         <ul className="nav flex-column">
+                           <li><a className="" href="/" >Home </a></li>
                           <li><a className="" href="#works" >How it Works </a></li>
-                          <li><a className="" href="#aboutus" >About</a></li>
-                          <li><a className="" href="#gifts">Gift ES Tokens</a></li>
+                          <li><a className="" href="#aboutus" >About Us</a></li>
+                          <li><a className="" href="/new" >New Coupon</a></li>
+                          <li><a className="" href="/redeem">Redeem Coupon</a></li>
                          </ul>
                     </div>
                     <div className="col-lg-6 col-sm-6">
